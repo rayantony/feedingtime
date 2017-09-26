@@ -1,5 +1,6 @@
 ### Feeding Time
-A Personal project playing with feed to organize and identify patterns. a a temporary installment.
+RSS Feeds and News Rendering and UI Experiments
+
 ```
 $ cd your_repo_root/repo_name
 $ git fetch origin
