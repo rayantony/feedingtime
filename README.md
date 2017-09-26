@@ -1,4 +1,6 @@
 feedingtime
 ===========
 
-fun with feeds
+RSS Feeds and News Rendering and UI Experiments
+
+
