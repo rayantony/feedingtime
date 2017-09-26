@@ -1,0 +1,8 @@
+title: Feedingtime
+description: fun with feeds
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-architect
+
+gems:
+  - jekyll-mentions
