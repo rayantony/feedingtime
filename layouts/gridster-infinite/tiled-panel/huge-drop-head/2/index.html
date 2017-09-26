@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="content-language" content="en" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,max-height:device-height,initial-scale=0.98" />
+  <meta http-equiv="cleartype" content="on">
+  <meta name="language" content="English, en" />
+  <title>Mobile News Reader Grids Demo</title>
+  <meta name="description" content="Mobile News Reader Demo" />
+  <meta name="keywords" content="Mobile News Reader Demo" />
+  <meta name="application-name" content="Mobile News Reader Demo">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Mobile News Reader Demo">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="MobileOptimized" content="width" />
+  <meta name="HandheldFriendly" content="true" />
+  <meta http-equiv="cleartype" content="on">
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-114.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-144.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png">
+  <link rel="icon" sizes="196x196" href="/favicon-196x196.png">
+  <link rel="shortcut icon" href="favicon.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
+ <script src="https://d39dlwgeopmdw0.cloudfront.net/assets/web/rss/js/jquery.gridster.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://d39dlwgeopmdw0.cloudfront.net/assets/web/rss/css/jquery.gridster.css">
+  <!--<link rel="stylesheet" type="text/css" href="https://gridster.net/demos/assets/demo.css">-->
+  <link href="https://d39dlwgeopmdw0.cloudfront.net/assets/web/rss/css/jquery.zrssfeed.css" rel="stylesheet" type="text/css" />
+  
+  <script src="https://d39dlwgeopmdw0.cloudfront.net/assets/web/rss/js/jquery.ray.rss.js" type="text/javascript"></script>  <link href="https://dabblet.com/style/global.css" rel="stylesheet" type="text/css" />
+  <style>
+    @charset "UTF-8";
+
+    html{min-height:100%;background-repeat:no-repeat;
+}
+    
+   body{
+      font-family: 'Typewriter','Courier New',sans;
+      font-size: 16px;
+    font-weight:400;
+      background: 
+    /* top, transparent grey, faked with gradient */ 
+    linear-gradient(
+      rgba(96,96,96,0.4), 
+      rgba(255, 255, 255,0.1),#fff,#f0f0f0,#f6f7f6,#f9f7f0,#fff) no-repeat,url(https://d39dlwgeopmdw0.cloudfront.net/assets/img/underwaterlg.jpg) no-repeat center top fixed;
+ -webkit-background-size: 100% auto cover;
+  background-size: 100% auto;
+  background-size: cover;
+    background-blend-mode:exclusion;
+        background-repeat:no-repeat;
+
+    
+    color:#444;
+    z-index: 5;
+       text-decoration: none;
+      text-rendering: optimizeLegibility;
+    
+      /*-webkit-font-feature-settings: "liga"; Currently broken in Chrome >= v22. Falls back to text-rendering. Safari is unaffected. */
+      -moz-font-feature-settings: "liga=1";
+      -moz-font-feature-settings: "liga";
+      -ms-font-feature-settings: "liga" 1;
+      -o-font-feature-settings: "liga";
+     font-feature-settings: "liga", "dlig";
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    
+    .rssFeed {
+       font-family: 'Typewriter','Courier New',sans;
+      font-size: 1.3rem;
+      line-height: 30px;
+      min-width: 27.9%;
+      display: inline-block;
+      vertical-align: top;
+      border-right: 1px solid #666;
+      margin-bottom: 3px;
+      transition: all .7s;
+              max-width: 34%;
+        background:
+ linear-gradient(to left,
+      rgba(96,96,96,0.8), 
+      rgba(255, 255, 255, 0.1));
+    }
+    .rssFeed a {
+      color: #222;
+      text-decoration: none;
+    font-weight:bold;
+    }
+   .rssFeed a:hover {
+     color: #b3d4fc;
+    color:#111;
+    font-weight:bold;
+    text-shadow:2px 2px grey;
+    font-size:1.4rem;
+    }
+    .gridster ul{background:transparent;}
+     .gridster ul.li:hover{color:#f06;background:#f00;}
+    .rssHeader {   font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 28px;
+    color:#444;
+      text-transform: uppercase;
+      display: inline-block;
+      line-height: 30px;
+      margin-bottom: 0px;
+      text-transform: uppercase;
+      border-bottom: 2px solid #2f2f2f;
+      border-top: 2px solid #2f2f2f;
+      padding: 2px;
+        background:linear-gradient(rgba(255,255,255,0.9),#f9f7f0);
+}
+    .rssBody {  
+    font-family: 'Typewriter','Courier New',sans;
+border: 1px solid #999; }
+    .rssBody ul { list-style: none; }
+    .rssBody ul, li, .collumn .rssRow, .rssRow h4, .rssRow p {
+      margin: 1px;
+      padding: 2px;
+    }
+   
+      .bg{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      left: 0;
+      -webkit-transition: -webkit-transform 0.3s;
+      -moz-transition: -moz-transform 0.3s;
+      transition: transform 0.3s;
+    }
+    
+    h3 {
+      font-weight: normal;
+      font-size: 20px;
+    }
+    
+    .rssRow .li .post .content {
+      z-index: 2;
+      position: relative;
+      pointer-events: none;
+    }
+    
+    .rssRow .collumn .headline {
+      text-align: center;
+      line-height: normal;
+      font-family: 'Playfair Display', serif;
+      display: block;
+      margin: 0 auto;
+                  font-feature-settings: "liga", "dlig";
+    
+    }
+    
+    .rssRow li .collumn .headline.hl1 {
+      font-weight: 700;
+      font-size: 28px;
+      text-transform: uppercase;
+      padding: 10px 0 10px 0;
+                  font-feature-settings: "liga", "dlig";
+    
+    }
+    
+    .rssRow li .collumn .headline.hl2 {
+      font-weight: 400;
+      font-style: italic;
+      font-size: 24px;
+      box-sizing: border-box;
+      padding: 10px 0 10px 0;
+    padding: 0.8em;
+    }
+    .rssRow li h4 {
+      font-size: 1.1em; 
+    }
+    .rssRow li div {
+      font-size: 90%;
+      color: #333;
+      margin: 0.2em 0 0.4em 0;
+    }
+    .odd {  font-weight: 400;
+      font-style: italic;
+      font-size: 22px;
+                background-color:rgba(0,0,0,0.15);
+                background-color:#fff;
+            background:linear-gradient(to left, rgba(255,255,255,0.9),#f9f7f0,transparent);
+        }
+    .even {  
+      font-weight: 400;
+      font-style: normal;
+      font-size: 26px;
+       background-color:rgba(128,128,128,0.15);
+       background:linear-gradient(to left, rgba(255,255,255,0.9),#f9f7f0,rgba(255,255,255,0.6));
+    }
+    .rssRow .rssMedia {
+      padding: 0.5em;
+      font-size: 1em;
+    }
+    menu, select, option, optgroup{
+    box-shadow: inset 0px 0px 10px 2px #000;
+    text-shadow:0px 0px 10px 2px #222;
+    color:#B87333;
+    overflow:auto; font-weight:
+    bolder;
+}
+   
+  </style>
+  <!--
+  <link href="https://www.erichynds.com/examples/jquery-ui-multiselect-widget/jquery.multiselect.css">
+  <script src="https://www.erichynds.com/examples/jquery-ui-multiselect-widget/src/jquery.multiselect.js"></script>
+-->
+<style>
+  /*
+https://fiddle.jshell.net/rayrc/yrnq4eeb/26/embedded/result/dark/
+switch to dabblet dropdowns, cleaner
+*/
+</style>
+<!--
+<style>
+body,li{background:#def;}
+ .inset-text{/* Shadows are visible under slightly transparent text color */    
+  color: rgba(10,60,150, 0.8);    
+  text-shadow: 1px 4px 6px #def, 0 0 0 #000, 1px 4px 6px #def;
+}
+  /* Don't show shadows when selecting text */
+  ::-moz-selection { 
+    background: #5af; color: #fff; text-shadow: none; 
+  }
+  ::selection { 
+    background: #5af; color: #fff; text-shadow: none;
+   }
+   </style>
+   -->
+   <style>
+     a,li a {
+        color: #0af;
+        text-decoration: none;
+      }
+       a:hover {
+        color:#09e;
+        text-shadow: 0.032em 0.015em  rgba(230,230,230,0.19);
+      }
+      li.a {text-overflow: clip ellipsis;}
+      ul {
+        list-style-type: none;
+        margin: 0px;
+        padding: 0px;
+      }
+     li {
+        text-overflow: unset;
+        padding: 10px;
+        border-top: 1px solid #2f2f2f;
+        background-color: #2b2b2b;
+      }
+      li:first-child {
+        border-top: none;
+         font-weight: 400;
+      font-style: italic;
+      font-size: 22px;
+                background-color:rgba(0,0,0,0.15);
+            background:linear-gradient(to left, rgba(255,255,255,0.9),#f9f7f0,transparent);
+  
+      }
+      li:nth-child(2n) {
+     font-weight: 400;
+      font-style: normal;
+      font-size: 22px;
+       background-color:rgba(128,128,128,0.15);
+       background:linear-gradient(to left, rgba(255,255,255,0.9),#f9f7f0,rgba(255,255,255,0.6));
+      }
+   /* 
+https://fiddle.jshell.net/rayrc/yrnq4eeb/26/embedded/result/dark/
+switch to dabblet dropdowns, cleaner
+*/
+  @import url(https://dabblet.com/style/global.css);
+      * {
+  -webkit-tap-highlight-color: transparent;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	height: 100%;
+	font: 100%/1.5 "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+body {
+	position: relative;
+	height: 100%;
+	border-top: 10px solid transparent;
+	box-sizing: border-box;
+}
+
+a {
+	color: inherit;
+	
+}
+ /*  header aside, or li*/
+   ul li {
+  background-color: #FAFAFA;
+  background: linear-gradient(to bottom, white, #F2F2F2);
+  padding: 0.75em 0.5em;
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.065);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom: 1px solid #D4D4D4;
+  border-right: 1px solid #D4D4D4;
+  background: url(/logo.svg) no-repeat 16px 50%;
+  background-size: 32px;
+  background-color: #fafafa;
+  padding: 0.75em 1em;
+  padding-left: 56px;
+} </style>  
+      </head>
+<body onload="onload();">
+<header>
+	<h1><a href="#">News Reader</a></h1>
+
+	<div class="with-inactive-dropdown">
+		</div>
+ <div class="with-dropdown">
+   <button class="with-symbol" title="Settings">⚙Feeds</button>
+		<form id="settings" class="dropdown">
+			<fieldset id="view">
+				<legend>Choose from:</legend>
+				
+				<div class="segmented-control">
+					<input type="radio" name="view" value="split" id="view-split" checked data-scope="file" />
+					<label for="view-split" class="button" title="Horizontal split">option</label>
+
+					<input type="radio" name="view" value="split-vertical" id="view-split-vertical" data-scope="file" />
+					<label for="view-split-vertical" class="button" title="Vertical split">option</label>
+					<input type="radio" name="view" value="separate" id="view-separate" data-scope="file" />
+					<label  class="button" title="Separate">option</label>
+				</div>
+				
+				<label class="font-size slider" title="Font size">
+					<span title="Smaller">small</span>
+					<input type="range" name="fontsize" min="50" max="200" value="100" step="10" data-scope="file" />
+					<span title="Larger">large</span>
+				</label>
+    <div class="menus">
+    <select id="menu" size="6">
+      <option value="https://codepen.io/rayrc/public/feed/">RAY CP PubPens</option>
+      <option value="https://codepen.io/rayrc/popular/feed/">Ray CP Popular Pens</option>
+      <option value="https://codepen.io/rayrc/blog/feed/">RAY CP BLOG</option>
+      <option value="https://codepen.io/rayrc/public/feed/">RAY CP PUB</option>
+      <option value="https://codepen.io/rayrc/private/feed/">RAY CP PRIVATE</option>
+      <option value="https://codepen.io/rayrc/public/2">RAY CP PUB 2</option>
+      <option value="https://codepen.io/rayrc/private/2">RAY CP PRIVATE 2</option>
+      <option value="https://codepen.io/rayrc/collections/">RAY CP COL</option>
+      <option value="https://codepen.io/rayrc/forks/">RAY FORKS</option>
+      <option value="https://codepen.io/rayrc/">RAYRC CP</option>
+      <option value="https://codepen.io/picks/feed">CP PICKS</option>
+      <option value="https://codepen.io/posts/feed">CP POSTS</option>
+      <option value="https://codepen.io/dockrtc/feed">CP DOCKRTC</option>
+      <option value="https://codepen.io/appsrtc/feed">CP APPSRTC</option>
+    </select>
+    
+      <select name="optgroup" id="menu2" multiple="multiple" size="6">
+        <optgroup label="Group One">
+          <option value="https://codepen.io/rayrc/blog/feed/">Ray Blogpen</option>
+          <option value="https://codepen.io/rayrc/private/feed/">Pens-RAY Private</option>
+          <option value="https://rayanthony.io/atom.feed">RCC atom</option>
+          <option value="https://rayanthonyrcc.wordpress.com/feed/">RRC News</option>
+          <option value="https://rayrcc.wordpress.com/feed/">RAYCC WP</option>
+          <option value="https://rayrc.wordpress.com/feed/">RAYRC WP</option>
+          <option value="https://ray.anthony.wordpress.com/feed/">Ray.Anthony WP</option>
+          <option value="https://deadflowers.wordpress.com/feed/">DeadFlowers WP</option>
+        </optgroup>
+
+        <optgroup label="Group Two">
+          <option value="http://feeds.reuters.com/reuters/oddlyEnoughNews">Reuters Oddly News</option>
+          <option value="http://gv.com/feed/">GV News</option>
+          <option value="http://feeds.bbc.co.uk/iplayer/highlights/tv/list">BBC iPlayer TV Listing</option>
+          <option value="http://rss.cnn.com/rss/edition.rss">CNN News</option>
+           <option value="https://piwik.pro/feed/">piwik</option>
+
+        </optgroup>
+      </select>
+    
+      <select name="optgroup" id="menu3" multiple="multiple" size="6">
+        <optgroup label="Group Three">
+           <option value="https://bootsnipp.c/users/dockrtc/">BS DOCKRTC</option>
+          <option value="https://bootsnipp.com/users/appsrt/">BS APPSRTC</option>
+          <option value="https://bitbucket.org/rayantony/rss/feed?token=f4c25b3d0a700ac61c8490be1d70d62e">rayntony BB(KEY)</option>
+          <option value="https://bitbucket.org/ortclink/rss/feed?token=">ortclink bitbucket</option>
+          <option value="https://bitbucket.org/rayrc/rss/feed?token=f4c25b3d0a700ac61c8490be1d70d62e">rayrc bitbucket</option>
+          <option value="https://bitbucket.org/ray.anthony/rss/feed?token=">rayrc bitbucket</option>
+          <option value="https://bitbucket.org/rayanthony/rss/feed?token=">rayrc bitbucket</option>
+        </optgroup>
+      </select>
+    
+      <select name="optgroup" id="menu4" multiple="multiple" size="6">
+        <optgroup label="Group Four">
+          <option value="https://github.com/rayantony.atom">Ray Antony Github Feed</option>
+          <option value="https://github.com/rayrc.atom">rayrc git</option>
+          <option value="httsp://github.com/deadflowers.atom">DF Git</option>
+          <option value="https://github.com/raymondanthony.atom">Raymondanthony Git</option>
+          <option value="https://github.com/rkooyenga.atom">rkooyenga git</option>
+          <option value="https://gist.github.com/rayantony.atom">Ray Antony gist</option>
+          <option value="https://gist.github.com/rayrc.atom">rayrc gist</option>
+          <option value="httsp://gist.github.com/deadflowers.atom">DF Gist</option>
+          <option value="https://gist.github.com/raymondanthony.atom">Raymondanthony gist</option>
+        </optgroup>
+      </select>
+    
+      <select name="optgroup" id="menu5" multiple="multiple" size="6">
+        <optgroup label="Group Five">
+          <option value="https://github.com/webole.atom">webole Github Feed</option>
+          <option value="https://github.com/ortclink.atom">webole Github Feed</option>
+          <option value="https://github.com/staginggrounds.atom">webole Github Feed</option>
+          <option value="https://github.com/cloudenvy.atom">cloudenvy Github Feed</option>
+        <option value="https://github.com/toliveistodie.atom">toliveistodie Github Feed</option>
+          <option value="https://github.com/burningtongue.atom">burn Github Feed</option>
+          <option value="https://github.com/html5ads.atom">html5ads Github Feed</option>
+          <option value="https://github.com/whseo.atom">whseoGithub Feed</option>
+          <option value="https://github.com/clientwindows.atom">clientwindows Github Feed</option>
+          <option value="https://github.com/dockerenvy.atom">dockerenvy Github Feed</option>
+          <option value="https://github.com/chromertc.atom">chromertc Github Feed</option>
+          <option value="https://github.com/twilrtc.atom">twilrtc Github Feed</option>
+          <option value="https://github.com/adpush.atom">adpush Github Feed</option>
+          <option value="https://github.com/rayantony/rayrc/rayrc.atom">rayrc git</option>
+          <option value="https://github.com/deadflowers.atom">DF Git</option>
+          <option value="https://github.com/rankordie.atom">RoD Git</option>
+          <option value="https://github.com/dockrtc.atom">Git DOCKRTC</option>
+          <option value="https://github.com/appsrtc.atom">Git APPSRTC</option>
+          <option value="https://gist.github.com/deadflowers/gists.atom">DF Git</option>
+        </optgroup>
+
+      </select></div>
+				<label class="checkbox">
+					<input type="checkbox" name="seethrough" value="1" data-scope="file" />
+					background
+				</label>
+			</fieldset>
+			
+			<fieldset>
+				<legend>Features</legend>
+				<label class="checkbox">
+					<input type="checkbox" name="prefixfree" value="1" data-scope="file" checked />
+					feature #1
+				</label>
+			</fieldset>
+		</form>
+    </div></header>
+    
+
+    <div class="gridster">
+      <ul>
+        <li id="test1" data-row="1" data-col="1" data-sizex="1" data-sizey="3"></li>
+        <li id="test2" data-row="1" data-col="2" data-sizex="1" data-sizey="3"></li>
+        <li id="test3" data-row="1" data-col="3" data-sizex="1" data-sizey="3"></li>
+
+        <li id="test4" data-row="2" data-col="3" data-sizex="2" data-sizey="1"></li>
+        <li id="test5" data-row="2" data-col="2" data-sizex="2" data-sizey="2"></li>
+
+        <li id="test6" data-row="1" data-col="4" data-sizex="1" data-sizey="1"></li>
+        <li id="test7" data-row="2" data-col="4" data-sizex="2" data-sizey="1"></li>
+        <li id="test8" data-row="3" data-col="4" data-sizex="1" data-sizey="1"></li>
+
+        <li id="test9" data-row="1" data-col="5" data-sizex="1" data-sizey="1"></li>
+        <li id="test10" data-row="3" data-col="5" data-sizex="1" data-sizey="1"></li>
+
+ 
+      </ul>
+    </div>
+  
+  <script>
+          $(document).ready(function() { setRSSFeed('#menu'); $('#menu').change(function() { setRSSFeed(this); });
+                  function setRSSFeed(obj) { var feedurl = $('option:selected', obj).val(); if (feedurl) { $('#test1').rss(feedurl); } } });
+  
+      $(document).ready(function() { setRSSFeed('#menu2'); $('#menu2').change(function() { setRSSFeed(this); });
+                  function setRSSFeed(obj) { var feedurl = $('option:selected', obj).val(); if (feedurl) { $('#test2').rss(feedurl); } } });
+  
+      $(document).ready(function() { setRSSFeed('#menu3'); $('#menu3').change(function() { setRSSFeed(this); });
+                  function setRSSFeed(obj) { var feedurl = $('option:selected', obj).val(); if (feedurl) { $('#test3').rss(feedurl); } } });
+   
+      $(document).ready(function() { setRSSFeed('#menu4'); $('#menu4').change(function() { setRSSFeed(this); });
+                  function setRSSFeed(obj) { var feedurl = $('option:selected', obj).val(); if (feedurl) { $('#test4').rss(feedurl); } } });
+  
+      $(document).ready(function() { setRSSFeed('#menu5'); $('#menu5').change(function() { setRSSFeed(this); });
+                  function setRSSFeed(obj) { var feedurl = $('option:selected', obj).val(); if (feedurl) { $('#test5').rss(feedurl); } } });
+  
+   $("select").multiselect({
+   selectedText: "# of # selected"
+});
+
+
+var gridster;
+$(function(){
+  gridster = $(".gridster ul").gridster({
+    widget_base_dimensions: [150, 150],
+    widget_margins: [5, 5],
+
+    serialize_params: function($w, wgd) {
+      return {
+        x: wgd.col,
+        y: wgd.row,
+        width: wgd.size_x,
+        height: wgd.size_y,
+        id: $($w).attr('id')
+      };
+    },
+    draggable: {
+      stop: function(event, ui) {
+        var positions = "[";
+        for (var i = 0; i < this.serialize().length; i++) {
+          positions += JSON.stringify(this.serialize()[i]);
+          if (i !== this.serialize().length - 1) { 
+            positions += ",";
+          }
+        }
+        positions += "]";
+        localStorage.setItem('positions', positions);
+      }
+    },
+    helper: 'clone',
+    resize: {
+      enabled: true,
+      stop: function(e, ui, $widget) {
+        var positions = "[";
+        for (var i = 0; i < this.serialize().length; i++) {
+          positions += JSON.stringify(this.serialize()[i]);
+          if (i !== this.serialize().length - 1) { 
+            positions += ",";
+          }
+        }
+        positions += "]";
+        localStorage.setItem('positions', positions);
+      }
+    }
+  }).data('gridster');
+});
+
+$('#container').mousedown(function() {
+    gridster.disable();
+});
+
+$(document).mouseup(function(){
+    gridster.enable();
+}); 
+  </script></body></html>
