@@ -20,13 +20,26 @@
   <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-114.png"> 
   <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114.png"> 
   <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-144.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png"> <link rel="icon" sizes="196x196" href="/favicon-196x196.png"> <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png">
+    <link rel="icon" sizes="196x196" href="/favicon-196x196.png">
+    <link rel="shortcut icon" href="favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="text/javascript"></script> 
     <script src="https://d39dlwgeopmdw0.cloudfront.net/assets/web/rss/js/jquery.gridster.js"></script> 
-    <link rel="stylesheet" type="text/css" href="https://d39dlwgeopmdw0.cloudfront.net/assets/web/rss/css/jquery.gridster.css"> 
-    <!--<link href="https://d39dlwgeopmdw0.cloudfront.net/assets/web/rss/css/gridster-demo.css" rel="stylesheet" type="text/css" /> -->
-    <link href="https://d39dlwgeopmdw0.cloudfront.net/assets/web/rss/css/jquery.zrssfeed.css" rel="stylesheet" type="text/css" /> 
-  <style>  
+<link href="https://d39dlwgeopmdw0.cloudfront.net/assets/web/rss/css/jquery.zrssfeed.css" rel="stylesheet" type="text/css" />
+<script src="https://d39dlwgeopmdw0.cloudfront.net/assets/web/rss/js/zrss.js" type="text/javascript"></script> 
+<link href="https://dabblet.com/style/global.css" rel="stylesheet" type="text/css" /> 
+<style> 
+  @charset "UTF-8"; 
+  html{
+    min-height:100%;min-width:100%;height:100vh;width:100vw;background-repeat:no-repeat; 
+  } 
+  body{ font-family: 'Typewriter','Courier New',sans; font-size: 16px; font-weight:400; 
+    background-image:url(https://d39dlwgeopmdw0.cloudfront.net/assets/img/underwaterlg.jpg) no-repeat center top fixed; background: linear-gradient(right 45deg, rgb(255, 254, 249),rgb(255, 253, 237)) no-repeat center top fixed, url(https://d39dlwgeopmdw0.cloudfront.net/assets/img/underwaterlg.jpg) no-repeat center top fixed; -webkit-background-size: 100% auto cover; background-size: 100% auto; background-size: cover; -webkit-background-blend-mode: multiply, multiply; background-blend-mode: luminosity, luminosity; background-repeat:no-repeat; color:#444; z-index: 5; text-decoration: none; text-rendering: optimizeLegibility; /*-webkit-font-feature-settings: "liga"; Currently broken in Chrome >= v22. Falls back to text-rendering. Safari is unaffected. */ -moz-font-feature-settings: "liga 1"; -moz-font-feature-settings: "liga"; -ms-font-feature-settings: "liga" 1; -o-font-feature-settings: "liga"; font-feature-settings: "liga", "dlig"; -webkit-font-smoothing: antialiased; }  .gridster ul{background:transparent;} .gridster ul.li:hover{color:#f06;background:#f00;} menu, select, option, optgroup{ box-shadow: inset 0px 0px 10px 2px #000; text-shadow:0px 0px 10px 2px #222; color:#B87333; overflow:auto; font-weight: bolder; } 
+</style>
+<!-- <link href="https://www.erichynds.com/examples/jquery-ui-multiselect-widget/jquery.multiselect.css"> <script src="https://www.erichynds.com/examples/jquery-ui-multiselect-widget/src/jquery.multiselect.js"></script>--> 
+<style> /* https://fiddle.jshell.net/rayrc/yrnq4eeb/26/embedded/result/dark/ switch to dabblet dropdowns, cleaner */ </style> 
+<!-- <style> body,li{background:#def;} .inset-text{/* Shadows are visible under slightly transparent text color */ color: rgba(10,60,150, 0.8); text-shadow: 1px 4px 6px #def, 0 0 0 #000, 1px 4px 6px #def; } /* Don't show shadows when selecting text */ ::-moz-selection { background: #5af; color: #fff; text-shadow: none; } ::selection { background: #5af; color: #fff; text-shadow: none; } </style> -->
+<style>  
   a,li a { color: #0af; text-decoration: none;
   }
   a:hover { color:#09e; text-shadow: 0.032em 0.015em rgba(230,230,230,0.19); }
@@ -42,7 +55,11 @@
   }
   li:nth-child(2n) {
      font-weight: 400; font-style: normal; font-size: 20px; background:rgba(0,0,0,0.05); 
-  } /* https://fiddle.jshell.net/rayrc/yrnq4eeb/26/embedded/result/dark/ switch to dabblet dropdowns, cleaner */ @import url(https://dabblet.com/style/global.css);
+  }
+    </script>
+    <script>
+    /* https://fiddle.jshell.net/rayrc/yrnq4eeb/26/embedded/result/dark/ switch to dabblet dropdowns, cleaner */
+    @import url(https://dabblet.com/style/global.css);
   * { -webkit-tap-highlight-color: transparent; }
   * { margin: 0; padding: 0; }
   html {
@@ -63,7 +80,7 @@
     box-shadow: 1px 1px 4px rgba(0,0,0,0.065);
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px; 
-    border-bottom: 1px solid #D4D4D4; border-right: 1px solid #D4D4D4; background: url(/logo.svg) no-repeat 16px 50%; background-size: 32px; 
+    border-bottom: 1px solid #D4D4D4; border-right: 1px solid #D4D4D4; background: url(/icon.png) no-repeat 16px 50%; background-size: 32px; 
     background-color: #fafafa; padding: 0.75em 1em; 
     padding-left: 56px; 
   } 
@@ -73,17 +90,50 @@
   <body onload="onload();"> 
   <header>
     <br>
-    <h1><a href="#">News Reader</a></h1> 
+    <h1>
+      <a href="#">News Reader</a></h1> 
     <div class="with-inactive-dropdown"> </div> 
     <div class="with-dropdown">
       <button class="with-symbol" title="Settings">%E2%9A%99Feeds</button>
-      <form id="settings" class="dropdown"> <fieldset id="view"> <legend>Choose from:</legend> 
+      <form id="settings" class="dropdown"> 
+        <fieldset id="view"> 
+          <legend>Choose from:</legend> 
         <div class="segmented-control"> 
           <input type="radio" name="view" value="split" id="view-split" checked data-scope="file" />
           <label for="view-split" class="button" title="Horizontal split">option</label> 
           <input type="radio" name="view" value="split-vertical" id="view-split-vertical" data-scope="file" />
-          <label for="view-split-vertical" class="button" title="Vertical split">option</label> <input type="radio" name="view" value="separate" id="view-separate" data-scope="file" /> <label class="button" title="Separate">option</label> </div> <label class="font-size slider" title="Font size"> <span title="Smaller">small</span> <input type="range" name="fontsize" min="50" max="200" value="100" step="10" data-scope="file" /> <span title="Larger">large</span> </label> <div class="menus"> <select id="menu" size="6"> <option value="https://codepen.io/rayrc/public/feed/">RAY CP PubPens</option> <option value="https://codepen.io/rayrc/popular/feed/">Ray CP Popular Pens</option> <option value="https://codepen.io/rayrc/blog/feed/">RAY CP BLOG</option> <option value="https://codepen.io/rayrc/public/feed/">RAY CP PUB</option> <option value="https://codepen.io/rayrc/private/feed/">RAY CP PRIVATE</option> <option value="https://codepen.io/rayrc/public/2">RAY CP PUB 2</option> <option value="https://codepen.io/rayrc/private/2">RAY CP PRIVATE 2</option> <option value="https://codepen.io/rayrc/collections/">RAY CP COL</option> <option value="https://codepen.io/rayrc/forks/">RAY FORKS</option> <option value="https://codepen.io/rayrc/">RAYRC CP</option> <option value="https://codepen.io/picks/feed">CP PICKS</option> <option value="https://codepen.io/posts/feed">CP POSTS</option> <option value="https://codepen.io/dockrtc/feed">CP DOCKRTC</option> <option value="https://codepen.io/appsrtc/feed">CP APPSRTC</option> </select> <select name="optgroup" id="menu2" multiple="multiple" size="6"> <optgroup label="Group One"> <option value="https://codepen.io/rayrc/blog/feed/">Ray Blogpen</option> <option value="https://codepen.io/rayrc/private/feed/">Pens-RAY Private</option> <option value="https://rayanthony.io/atom.feed">RCC atom</option> <option value="https://rayanthonyrcc.wordpress.com/feed/">RRC News</option> <option value="https://rayrcc.wordpress.com/feed/">RAYCC WP</option> <option value="https://rayrc.wordpress.com/feed/">RAYRC WP</option> <option value="https://ray.anthony.wordpress.com/feed/">Ray.Anthony WP</option> <option value="https://deadflowers.wordpress.com/feed/">DeadFlowers WP</option> </optgroup> <optgroup label="Group Two"> <option value="http://feeds.reuters.com/reuters/oddlyEnoughNews">Reuters Oddly News</option> <option value="https://piwik.pro/feed/">piwik</option>
-        </optgroup> </select>
+          <label for="view-split-vertical" class="button" title="Vertical split">option</label>
+          <input type="radio" name="view" value="separate" id="view-separate" data-scope="file" />
+          <label class="button" title="Separate">option</label> 
+          </div> <label class="font-size slider" title="Font size">
+        <span title="Smaller">small</span> 
+        <input type="range" name="fontsize" min="50" max="200" value="100" step="10" data-scope="file" /> 
+        <span title="Larger">large</span> 
+        
+        </label>
+        <div class="menus">
+          <select id="menu" size="6">
+          <option value="https://codepen.io/rayrc/public/feed/">RAY CP PubPens</option> 
+            <option value="https://codepen.io/rayrc/popular/feed/">Ray CP Popular Pens</option>
+            <option value="https://codepen.io/rayrc/blog/feed/">RAY CP BLOG</option> 
+            <option value="https://codepen.io/rayrc/public/feed/">RAY CP PUB</option> 
+            <option value="https://codepen.io/rayrc/private/feed/">RAY CP PRIVATE</option> 
+            <ption value="https://codepen.io/rayrc/public/2">RAY CP PUB 2</option> 
+            <option value="https://codepen.io/rayrc/private/2">RAY CP PRIVATE 2</option> 
+            <option value="https://codepen.io/rayrc/collections/">RAY CP COL</option> <option value="https://codepen.io/rayrc/forks/">RAY FORKS</option> <option value="https://codepen.io/rayrc/">RAYRC CP</option> <option value="https://codepen.io/picks/feed">CP PICKS</option> <option value="https://codepen.io/posts/feed">CP POSTS</option> <option value="https://codepen.io/dockrtc/feed">CP DOCKRTC</option>
+            <option value="https://codepen.io/appsrtc/feed">CP APPSRTC</option> 
+          </select> 
+          <select name="optgroup" id="menu2" multiple="multiple" size="6">
+          <optgroup label="Group One">
+            <option value="https://codepen.io/rayrc/blog/feed/">Ray Blogpen</option> 
+            <option value="https://codepen.io/rayrc/private/feed/">Pens-RAY Private</option> 
+            <option value="https://rayanthony.io/atom.feed">RCC atom</option> <option value="https://rayanthonyrcc.wordpress.com/feed/">RRC News</option> <option value="https://rayrcc.wordpress.com/feed/">RAYCC WP</option> <option value="https://rayrc.wordpress.com/feed/">RAYRC WP</option> <option value="https://ray.anthony.wordpress.com/feed/">Ray.Anthony WP</option> <option value="https://deadflowers.wordpress.com/feed/">DeadFlowers WP</option> 
+            </optgroup> 
+            <optgroup label="Group Two"> 
+              <option value="http://feeds.reuters.com/reuters/oddlyEnoughNews">Reuters Oddly News</option>
+              <option value="https://piwik.pro/feed/">piwik</option>
+        </optgroup> 
+        </select>
         <select name="optgroup" id="menu3" multiple="multiple" size="6"> 
           <optgroup label="Group Three">
              <option value="https://gist.github.com/rayantony.atom">Ray Antony gists </option> 
@@ -91,11 +141,24 @@
           <option value="https://gist.github.com/deadflowers.atom">DF Gist</option>
           <option value="https://gist.github.com/rankordie.atom">RoD Gist</option>
         </optgroup> </select> 
-        <select name="optgroup" id="menu4" multiple="multiple" size="6"> <optgroup label="Group Four"> 
+        <select name="optgroup" id="menu4" multiple="multiple" size="6"> 
+          <optgroup label="Group Four"> 
           <option value="https://gist.github.com/rayantony.atom">Ray Antony gists </option> 
           <option value="https://gist.github.com/rayrc.atom">rayrc gist</option> 
           <option value="https://gist.github.com/deadflowers.atom">DF Gist</option>
-          <option value="https://gist.github.com/rankordie.atom">RoD Gist</option> <option value="https://gist.github.com/raymondanthony.atom">raymond Gist</option> <option value="https://bootsnipp.c/users/dockrtc/">BS DOCKRTC</option> <option value="https://bootsnipp.com/users/appsrtc/">BS APPSRTC</option> </optgroup> </select> <select name="optgroup" id="menu5" multiple="multiple" size="6"> <optgroup label="Group Five"> <option value="https://github.com/rayrc.atom">rayrc git</option> <option value="https://github.com/raymondanthony.atom">rayrc git</option> <option value="https://github.com/deadflowers.atom">DF Git</option> <option value="https://github.com/rayantony.atom">Ray Antony Github Feed</option> <option value="https://github.com/chromeappupdates.atom">chromeappupdates git</option> <option value="https://github.com/cloudenvyit.atom">autoupdate git</option> <option value="https://github.com/autoupdate.atom">autoupdate git</option> <option value="https://github.com/rkooyenga.atom">rkooyenga git</option> <option value="https://github.com/webole.atom">webole Github Feed</option> <option value="https://github.com/rcassoc.atom">rcassoc git</option> <option value="https://github.com/cloudyvbx.atom">cvbx git</option> <option value="https://github.com/rccloud.atom">rccloud git</option> <option value="https://github.com/appsrtc.atom">appsrtc git</option> <option value="https://github.com/onlyhd.atom">onlyhd git</option> <option value="https://github.com/flacman.atom">flacman git</option> <option value="https://github.com/ortclink.atom">ortclink Github Feed</option> <option value="https://github.com/staginggrounds.atom">staginggrounds Github Feed</option> <option value="https://github.com/cloudenvy.atom">cloudenvy Github Feed</option> <option value="https://github.com/toliveistodie.atom">toliveistodie Github Feed</option> <option value="https://github.com/burningtongue.atom">burningtongue Github Feed</option> <option value="https://github.com/html5ads.atom">html5ads Github Feed</option> <option value="https://github.com/whseo.atom">whseoGithub Feed</option> <option value="https://github.com/clientwindows.atom">clientwindows Github Feed</option> <option value="https://github.com/dockerenvy.atom">dockerenvy Github Feed</option> <option value="https://github.com/chromertc.atom">chromertc Github Feed</option> <option value="https://github.com/twilrtc.atom">twilrtc Github Feed</option> <option value="https://github.com/adpush.atom">adpush Github Feed</option> <option value="https://github.com/rankordie.atom">RoD Git</option> <option value="https://github.com/dockrtc.atom">Git DOCKRTC</option> <option value="https://github.com/appsrtc.atom">Git APPSRTC</option> <option value="https://gist.github.com/deadflowers.atom">DF Gists</option> </optgroup> </select></div> <label class="checkbox"> <input type="checkbox" name="seethrough" value="1" data-scope="file" /> background </label> </fieldset> <fieldset> <legend>Features</legend> <label class="checkbox"> <input type="checkbox" name="prefixfree" value="1" data-scope="file" checked /> feature #1 </label> </fieldset> </form> </div></header>
+          <option value="https://gist.github.com/rankordie.atom">RoD Gist</option>
+            <option value="https://gist.github.com/raymondanthony.atom">raymond Gist</option>
+            <option value="https://bootsnipp.c/users/dockrtc/">BS DOCKRTC</option>
+            <option value="https://bootsnipp.com/users/appsrtc/">BS APPSRTC</option>
+          </optgroup> </select>
+          <select name="optgroup" id="menu5" multiple="multiple" size="6"> 
+            <optgroup label="Group Five"> <option value="https://github.com/rayrc.atom">rayrc git</option>
+              <option value="https://github.com/raymondanthony.atom">rayrc git</option> <option value="https://github.com/deadflowers.atom">DF Git</option> <option value="https://github.com/rayantony.atom">Ray Antony Github Feed</option> <option value="https://github.com/chromeappupdates.atom">chromeappupdates git</option> <option value="https://github.com/cloudenvyit.atom">autoupdate git</option> <option value="https://github.com/autoupdate.atom">autoupdate git</option> <option value="https://github.com/rkooyenga.atom">rkooyenga git</option> <option value="https://github.com/webole.atom">webole Github Feed</option> <option value="https://github.com/rcassoc.atom">rcassoc git</option> <option value="https://github.com/cloudyvbx.atom">cvbx git</option> <option value="https://github.com/rccloud.atom">rccloud git</option> <option value="https://github.com/appsrtc.atom">appsrtc git</option> <option value="https://github.com/onlyhd.atom">onlyhd git</option> <option value="https://github.com/flacman.atom">flacman git</option> <option value="https://github.com/ortclink.atom">ortclink Github Feed</option> <option value="https://github.com/staginggrounds.atom">staginggrounds Github Feed</option> <option value="https://github.com/cloudenvy.atom">cloudenvy Github Feed</option> <option value="https://github.com/toliveistodie.atom">toliveistodie Github Feed</option> <option value="https://github.com/burningtongue.atom">burningtongue Github Feed</option> <option value="https://github.com/html5ads.atom">html5ads Github Feed</option> <option value="https://github.com/whseo.atom">whseoGithub Feed</option> <option value="https://github.com/clientwindows.atom">clientwindows Github Feed</option> <option value="https://github.com/dockerenvy.atom">dockerenvy Github Feed</option> <option value="https://github.com/chromertc.atom">chromertc Github Feed</option> <option value="https://github.com/twilrtc.atom">twilrtc Github Feed</option> <option value="https://github.com/adpush.atom">adpush Github Feed</option> <option value="https://github.com/rankordie.atom">RoD Git</option> <option value="https://github.com/dockrtc.atom">Git DOCKRTC</option> <option value="https://github.com/appsrtc.atom">Git APPSRTC</option> <option value="https://gist.github.com/deadflowers.atom">DF Gists</option> </optgroup> </select></div> <label class="checkbox"> <input type="checkbox" name="seethrough" value="1" data-scope="file" /> background </label> 
+        </fieldset> 
+        <fieldset>
+        <legend>Features</legend> 
+        <label class="checkbox"> <input type="checkbox" name="prefixfree" value="1" data-scope="file" checked /> feature #1 </label> 
+        </fieldset> </form> </div></header>
     
     <div class="gridster menu"> 
       <ul class="">
