@@ -33,13 +33,13 @@
   html{
     min-height:100%;min-width:100%;height:100vh;width:100vw;background-repeat:no-repeat; 
   } 
-  body{ font-family: 'Typewriter','Courier New',sans; font-size: 16px; font-weight:400; 
+  body{ font-family: 'Droid Serif',serif; font-size: 16px; font-weight:400; 
     background-image:url(https://d39dlwgeopmdw0.cloudfront.net/assets/img/bgblurnew.png);
     /* background-image:url(https://d39dlwgeopmdw0.cloudfront.net/assets/img/bgboxnew.png) no-repeat center top fixed; */
-    background: linear-gradient(right 45deg, rgb(255, 254, 249),rgb(255, 253, 237)) repeat center top fixed,
+    background: linear-gradient(right 45deg, rgb(255, 254, 249),rgb(255, 253, 237)) repeat;
       url(https://d39dlwgeopmdw0.cloudfront.net/assets/img/bgblurnew.png) repeat center top fixed;
     -webkit-background-size: 100% auto; background-size: 100% auto; background-size: cover; 
-    -webkit-background-blend-mode: multiply, multiply; background-blend-mode: luminous, luminus;
+    -webkit-background-blend-mode: multiply, multiply; background-blend-mode: luminous, luminous;
     background-repeat:repeat; color:#444; z-index: 5;
     text-decoration: none; 
     text-rendering: optimizeLegibility; /*-webkit-font-feature-settings: "liga"; Currently broken in Chrome >= v22. Falls back to text-rendering. Safari is unaffected. */ -moz-font-feature-settings: "liga 1"; -moz-font-feature-settings: "liga"; -ms-font-feature-settings: "liga" 1; -o-font-feature-settings: "liga"; font-feature-settings: "liga", "dlig"; -webkit-font-smoothing: antialiased; }  .gridster ul{background:transparent;} .gridster ul.li:hover{color:#f06;background:#f00;} menu, select, option, optgroup{ box-shadow: inset 0px 0px 10px 2px #000; text-shadow:0px 0px 10px 2px #222; color:#B87333; overflow:auto; font-weight: bolder; } 
@@ -88,7 +88,8 @@
     box-shadow: 1px 1px 4px rgba(0,0,0,0.065);
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px; 
-    border-bottom: 1px solid #D4D4D4; border-right: 1px solid #D4D4D4; background: url(/icon.png) no-repeat 16px 50%; background-size: 32px; 
+    border-bottom: 1px solid #D4D4D4; border-right: 1px solid #D4D4D4;
+    background: url(/icon.png) no-repeat 16px 50%; background-size: 32px; 
     background-color: #fafafa; padding: 0.75em 1em; 
     padding-left: 56px; 
   } 
@@ -171,7 +172,15 @@
     <div class="gridster menu"> 
       <ul class="">
         <li class="" id="test1" data-row="1" data-col="1" data-sizex="1" data-sizey="3"></li>
-        <li id="test2" data-row="1" data-col="2" data-sizex="1" data-sizey="3"></li> <li id="test3" data-row="1" data-col="3" data-sizex="1" data-sizey="3"></li> <li id="test4" data-row="2" data-col="3" data-sizex="2" data-sizey="1"></li> <li id="test5" data-row="2" data-col="2" data-sizex="2" data-sizey="2"></li> <li id="test6" data-row="1" data-col="4" data-sizex="1" data-sizey="1"></li> <li id="test7" data-row="2" data-col="4" data-sizex="2" data-sizey="1"></li> <li id="test8" data-row="3" data-col="4" data-sizex="1" data-sizey="1"></li> <li id="test9" data-row="1" data-col="5" data-sizex="1" data-sizey="1"></li> <li id="test10" data-row="3" data-col="5" data-sizex="1" data-sizey="1"></li>
+        <li id="test2" data-row="1" data-col="2" data-sizex="1" data-sizey="3">⚙</li>
+        <li id="test3" data-row="1" data-col="3" data-sizex="1" data-sizey="3">⚙</li> 
+        <li id="test4" data-row="2" data-col="3" data-sizex="2" data-sizey="1">⚙</li>
+        <li id="test5" data-row="2" data-col="2" data-sizex="2" data-sizey="2">⚙</li> 
+        <li id="test6" data-row="1" data-col="4" data-sizex="1" data-sizey="1">⚙</li> 
+        <li id="test7" data-row="2" data-col="4" data-sizex="2" data-sizey="1">⚙</li>
+        <li id="test8" data-row="3" data-col="4" data-sizex="1" data-sizey="1">⚙</li> 
+        <li id="test9" data-row="1" data-col="5" data-sizex="1" data-sizey="1">⚙</li>
+        <li id="test10" data-row="3" data-col="5" data-sizex="1" data-sizey="1">⚙</li>
       </ul> </div> 
   
   <script>
