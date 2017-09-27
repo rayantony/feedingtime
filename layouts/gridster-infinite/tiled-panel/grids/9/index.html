@@ -28,48 +28,6 @@
   <link rel="icon" sizes="196x196" href="/favicon-196x196.png">
   <link rel="shortcut icon" href="favicon.ico">
   
-  
-  <style type="text/css">
-    /*
-https://fiddle.jshell.net/rayrc/yrnq4eeb/26/embedded/result/dark/
-*/
-   a {
-        color: #37D;
-        text-decoration: none;
-      }
-      a:hover {
-        text-decoration: underline;
-      }
-      ul {
-        list-style-type: none;
-        margin: 0px;
-        padding: 0px;
-      }
-      li {
-        padding: 10px;
-        border-top: 1px solid #2f2f2f;
-        background-color: #2b2b2b;
-      }
-      li:first-child {
-        border-top: none;
-         font-weight: 400;
-      font-style: italic;
-      font-size: 22px;
-                background-color:rgba(0,0,0,0.15);
-                background-color:#fff;
-            background:linear-gradient(to left, rgba(255,255,255,0.9),#f9f7f0,transparent);
-  
-      }
-      li:nth-child(2n) {
-        background-color:#000;
-              font-weight: 400;
-      font-style: normal;
-      font-size: 26px;
-       background-color:rgba(128,128,128,0.15);
-       background:linear-gradient(to left, rgba(255,255,255,0.9),#f9f7f0,rgba(255,255,255,0.6));
-      }
-  </style>
-
   <title>news gridster test  by rayrc</title>
 
   
@@ -77,85 +35,6 @@ https://fiddle.jshell.net/rayrc/yrnq4eeb/26/embedded/result/dark/
 
 
 
-
-<script type='text/javascript'>//<![CDATA[
-$(window).load(function(){
-      $(document).ready(function() { setRSSFeed('#menu'); $('#menu').change(function() { setRSSFeed(this); });
-                  function setRSSFeed(obj) { var feedurl = $('option:selected', obj).val(); if (feedurl) { $('#test1').rss(feedurl); } } });
-  
-      $(document).ready(function() { setRSSFeed('#menu2'); $('#menu2').change(function() { setRSSFeed(this); });
-                  function setRSSFeed(obj) { var feedurl = $('option:selected', obj).val(); if (feedurl) { $('#test2').rss(feedurl); } } });
-  
-      $(document).ready(function() { setRSSFeed('#menu3'); $('#menu3').change(function() { setRSSFeed(this); });
-                  function setRSSFeed(obj) { var feedurl = $('option:selected', obj).val(); if (feedurl) { $('#test3').rss(feedurl); } } });
-   
-      $(document).ready(function() { setRSSFeed('#menu4'); $('#menu4').change(function() { setRSSFeed(this); });
-                  function setRSSFeed(obj) { var feedurl = $('option:selected', obj).val(); if (feedurl) { $('#test4').rss(feedurl); } } });
-  
-      $(document).ready(function() { setRSSFeed('#menu5'); $('#menu5').change(function() { setRSSFeed(this); });
-                  function setRSSFeed(obj) { var feedurl = $('option:selected', obj).val(); if (feedurl) { $('#test5').rss(feedurl); } } });
-  
-   $("select").multiselect({
-   selectedText: "# of # selected"
-});
-
-
-var gridster;
-$(function(){
-  gridster = $(".gridster ul").gridster({
-    widget_base_dimensions: [150, 150],
-    widget_margins: [5, 5],
-
-    serialize_params: function($w, wgd) {
-      return {
-        x: wgd.col,
-        y: wgd.row,
-        width: wgd.size_x,
-        height: wgd.size_y,
-        id: $($w).attr('id')
-      };
-    },
-    draggable: {
-      stop: function(event, ui) {
-        var positions = "[";
-        for (var i = 0; i < this.serialize().length; i++) {
-          positions += JSON.stringify(this.serialize()[i]);
-          if (i !== this.serialize().length - 1) { 
-            positions += ",";
-          }
-        }
-        positions += "]";
-        localStorage.setItem('positions', positions);
-      }
-    },
-    helper: 'clone',
-    resize: {
-      enabled: true,
-      stop: function(e, ui, $widget) {
-        var positions = "[";
-        for (var i = 0; i < this.serialize().length; i++) {
-          positions += JSON.stringify(this.serialize()[i]);
-          if (i !== this.serialize().length - 1) { 
-            positions += ",";
-          }
-        }
-        positions += "]";
-        localStorage.setItem('positions', positions);
-      }
-    }
-  }).data('gridster');
-});
-
-$('#container').mousedown(function() {
-    gridster.disable();
-});
-
-$(document).mouseup(function(){
-    gridster.enable();
-}); 
-});//]]> 
-
-</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="text/javascript"></script>
  <script src="https://d39dlwgeopmdw0.cloudfront.net/assets/web/rss/js/jquery.gridster.js"></script>
   <link rel="stylesheet" type="text/css" href="https://d39dlwgeopmdw0.cloudfront.net/assets/web/rss/css/jquery.gridster.css">
@@ -344,6 +223,48 @@ border: 1px solid #999; }
     font-weight:bold;
     }
   </style>
+  <style type="text/css">
+    /*
+https://fiddle.jshell.net/rayrc/yrnq4eeb/26/embedded/result/dark/
+*/
+   a {
+        color: #37D;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      ul {
+        list-style-type: none;
+        margin: 0px;
+        padding: 0px;
+      }
+      li {
+        padding: 10px;
+        border-top: 1px solid #2f2f2f;
+        background-color: #2b2b2b;
+      }
+      li:first-child {
+        border-top: none;
+         font-weight: 400;
+      font-style: italic;
+      font-size: 22px;
+                background-color:rgba(0,0,0,0.15);
+                background-color:#fff;
+            background:linear-gradient(to left, rgba(255,255,255,0.9),#f9f7f0,transparent);
+  
+      }
+      li:nth-child(2n) {
+        background-color:#000;
+              font-weight: 400;
+      font-style: normal;
+      font-size: 26px;
+       background-color:rgba(128,128,128,0.15);
+       background:linear-gradient(to left, rgba(255,255,255,0.9),#f9f7f0,rgba(255,255,255,0.6));
+      }
+  </style>
+
+  
   <link href="https://www.erichynds.com/examples/jquery-ui-multiselect-widget/jquery.multiselect.css">
   <script src="https://www.erichynds.com/examples/jquery-ui-multiselect-widget/src/jquery.multiselect.js"></script>
 </head>
@@ -488,6 +409,85 @@ border: 1px solid #999; }
     </div>
   
 
+
+<script type='text/javascript'>//<![CDATA[
+$(window).load(function(){
+      $(document).ready(function() { setRSSFeed('#menu'); $('#menu').change(function() { setRSSFeed(this); });
+                  function setRSSFeed(obj) { var feedurl = $('option:selected', obj).val(); if (feedurl) { $('#test1').rss(feedurl); } } });
+  
+      $(document).ready(function() { setRSSFeed('#menu2'); $('#menu2').change(function() { setRSSFeed(this); });
+                  function setRSSFeed(obj) { var feedurl = $('option:selected', obj).val(); if (feedurl) { $('#test2').rss(feedurl); } } });
+  
+      $(document).ready(function() { setRSSFeed('#menu3'); $('#menu3').change(function() { setRSSFeed(this); });
+                  function setRSSFeed(obj) { var feedurl = $('option:selected', obj).val(); if (feedurl) { $('#test3').rss(feedurl); } } });
+   
+      $(document).ready(function() { setRSSFeed('#menu4'); $('#menu4').change(function() { setRSSFeed(this); });
+                  function setRSSFeed(obj) { var feedurl = $('option:selected', obj).val(); if (feedurl) { $('#test4').rss(feedurl); } } });
+  
+      $(document).ready(function() { setRSSFeed('#menu5'); $('#menu5').change(function() { setRSSFeed(this); });
+                  function setRSSFeed(obj) { var feedurl = $('option:selected', obj).val(); if (feedurl) { $('#test5').rss(feedurl); } } });
+  
+   $("select").multiselect({
+   selectedText: "# of # selected"
+});
+
+
+var gridster;
+$(function(){
+  gridster = $(".gridster ul").gridster({
+    widget_base_dimensions: [150, 150],
+    widget_margins: [5, 5],
+
+    serialize_params: function($w, wgd) {
+      return {
+        x: wgd.col,
+        y: wgd.row,
+        width: wgd.size_x,
+        height: wgd.size_y,
+        id: $($w).attr('id')
+      };
+    },
+    draggable: {
+      stop: function(event, ui) {
+        var positions = "[";
+        for (var i = 0; i < this.serialize().length; i++) {
+          positions += JSON.stringify(this.serialize()[i]);
+          if (i !== this.serialize().length - 1) { 
+            positions += ",";
+          }
+        }
+        positions += "]";
+        localStorage.setItem('positions', positions);
+      }
+    },
+    helper: 'clone',
+    resize: {
+      enabled: true,
+      stop: function(e, ui, $widget) {
+        var positions = "[";
+        for (var i = 0; i < this.serialize().length; i++) {
+          positions += JSON.stringify(this.serialize()[i]);
+          if (i !== this.serialize().length - 1) { 
+            positions += ",";
+          }
+        }
+        positions += "]";
+        localStorage.setItem('positions', positions);
+      }
+    }
+  }).data('gridster');
+});
+
+$('#container').mousedown(function() {
+    gridster.disable();
+});
+
+$(document).mouseup(function(){
+    gridster.enable();
+}); 
+});//]]> 
+
+</script>
 </body>
 
 </html>
